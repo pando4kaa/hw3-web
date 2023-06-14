@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <form>
+        <input
+          type="text"
+          id="addProductInput"
+          name="addProductInput"
+          placeholder="Назва товару"
+        />
+        <button type="submit" data-tooltip="додати товар" id="addProductButton">
+          Додати
+        </button>
+      </form>
+      <section id="productsList" class="products-container">
+        <!-- <section class="product bought">
+          <p class="name">Помідори</p>
+          <div class="secondColumn">
+            <button class="minus" data-tooltip="зменшити на 1">-</button>
+            <span class="count">2</span>
+            <button class="plus" data-tooltip="збільшити на 1">+</button>
+          </div>
+
+          <div class="thirdColumn">
+            <button class="buy" data-tooltip="зробити товар не купленим">
+              Не куплено
+            </button>
+            <button class="cancel" data-tooltip="видалити">×</button>
+          </div>
+        </section>
+
+        <section class="product">
+          <p class="name">Печиво</p>
+          <div class="secondColumn">
+            <button class="minus" data-tooltip="зменшити на 1">-</button>
+            <span class="count">2</span>
+            <button class="plus" data-tooltip="збільшити на 1">+</button>
+          </div>
+
+          <div class="thirdColumn">
+            <button class="buy" data-tooltip="купити товар">Куплено</button>
+            <button class="cancel" data-tooltip="видалити">×</button>
+          </div>
+        </section>
+
+        <section class="product">
+          <input type="text" name="ProductName" value="Сир" class="name" />
+          <div class="secondColumn">
+            <button class="minus" disabled data-tooltip="зменшити на 1">
+              -
+            </button>
+            <span class="count">1</span>
+            <button class="plus" data-tooltip="збільшити на 1">+</button>
+          </div>
+
+          <div class="thirdColumn">
+            <button class="buy" data-tooltip="купити товар">Куплено</button>
+            <button class="cancel" data-tooltip="видалити">×</button>
+          </div>
+        </section> -->
+        
+      </section>
+    </main>
+
+    <aside>
+      <h2>Залишилося</h2>
+      <section id="left">
+        <!--
+        <span class="count"
+          >Печиво
+          <span class="countRight">2</span>
+        </span>
+
+        <span class="count"
+          >Сир
+          <span class="countRight">1</span>
+        </span>
+    -->
+      </section>
+
+      <h2>Куплено</h2>
+      <section class="bought" id="bought">
+        <!--
+        <span class="count"
+          >Помідори
+          <span class="countRight">2</span>
+        </span>
+        -->
+      </section>
+    </aside>
+
+    <div class="BuyList">
+      <h2>Buy List</h2>
+      <p class="createdBy">Created by:</p>
+      <p class="author">Anastasiia Tuhai</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

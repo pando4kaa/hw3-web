@@ -1,0 +1,324 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    background: rgb(208, 192, 217);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 16px;
+}
+body > main {
+    background: white;
+    margin: 20px 10px;
+    width: 70%;
+    border-radius: 4px;
+    box-shadow: 1px 3px 8px rgba(0, 0,0, .1);
+} 
+
+body > main > * {
+    
+}
+.products-container > section {
+    padding: 12px 18px;
+    margin: 0;
+    border-bottom: 1px lightgray solid;
+}
+.products-container:last-child {
+    border: none;
+}
+
+body > main > form {
+    display: flex;
+    padding: 18px;
+    margin: 0;
+    border-bottom: 1px lightgray solid;
+}
+#addProductInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 4px 0 0 4px;
+}
+#addProductButton {
+    padding: 8px 30px;
+    background: rgb(71, 138, 221);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border: none;
+    /* border-top: 4px solid rgb(71, 138, 221); */
+    border-bottom: 4px solid rgb(46, 111, 191);
+    border-radius: 0 4px 4px 0;
+}
+.product {
+    display: flex;
+    justify-content: space-between;
+}
+.product > * {
+    
+    flex-shrink: 1;
+}
+.product .name {
+    width: 20%;
+    padding: 5px;
+    margin: 0;
+    border:1px solid white;
+    border-radius: 3px;
+}
+
+.product input.name:focus {
+    outline: none;
+    border:1px solid rgb(88, 171, 239);
+    box-shadow: 0 0 6px rgb(88, 171, 239, .5);
+}
+.product .secondColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.product .thirdColumn {
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 160px;
+}
+.bought .minus, .bought .plus, .bought .cancel {
+    display: none;
+}
+.bought .name, aside .bought span {
+    text-decoration: line-through;
+}
+.minus {
+   background: red;
+   color: white; 
+   font-weight: bold;
+   border: none;
+   border-radius: 50%;
+   width: 30px;
+   height: 30px;
+   border-bottom: 3px solid rgb(165, 33, 33);
+   margin: 0 2px;
+}
+.minus:not([disabled]) {
+    opacity: 1;
+}
+.minus[disabled] {
+    opacity: 0.5;
+ }
+.plus {
+    background: rgb(56, 183, 58);
+    color: white; 
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border-bottom: 3px solid  rgb(34, 107, 35);
+    margin: 0 2px;
+ }
+ .count {
+    background: rgb(215, 215, 215);
+    color: rgb(69, 69, 69);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+ }
+ .buy {
+    background: rgb(238, 237, 237);
+    border: 1px solid rgb(187, 185, 182);
+    border-radius: 3px;
+    border-bottom: 3px solid  rgb(179, 177, 173);
+    font-weight: bold;
+    color: rgb(69, 69, 69);
+    padding: 8px 18px;
+ }
+ .cancel {
+    background: red;
+    border: none;
+    border-radius: 3px;
+    border-bottom: 3px solid  rgb(165, 33, 33);
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: rgb(255, 255, 255);
+    padding: 6px 15px;
+    margin-left: 6px;
+ }
+ .hidden {
+    display: none;
+ }
+
+ body > aside {
+    background: white;
+    margin: 20px 10px;
+    width: 30%;
+    border-radius: 4px;
+    box-shadow: 1px 3px 8px rgba(0, 0,0, .1);
+}
+body > aside > * {
+    padding: 16px;
+    margin: 0;
+    border-bottom: 1px lightgray solid;
+}
+body > aside > *:last-child {
+    border: none;
+}
+body > aside > section {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+body > aside .count {
+ 
+    font-size: 0.75rem;
+}
+.countRight {
+    background:  rgb(255, 89, 0);
+    padding: 3px;
+    margin-left: 3px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+}
+button{
+    position: relative;
+
+}
+button::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translate(-50%, -90%) scale(0);
+    transform-origin: bottom;
+    min-width: 80px;
+    padding: 10px;
+    background: rgb(120, 9, 181);
+    border-radius: 15px;
+    color: white;
+    font-size: 11px;
+    font-weight: normal;
+    transition: all 0.3s ease-in-out;
+    visibility:hidden;
+}
+button:hover::after{
+    visibility: visible;
+    transform: translate(-50%, -100%) scale(1);
+}
+.BuyList h2{
+    margin-top: 4px;
+    font-size: 1.2rem;
+    
+}
+.BuyList{
+    background:rgb(142, 19, 194);
+    color: white;
+    border-radius: 10px 10px 0 0;
+    position: fixed;
+    bottom: 0;
+    transform: translateY(44%);
+    left: 10px;
+    padding: 10px 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.BuyList:hover{
+    transform: translateY(0);
+    background: rgb(86, 19, 194);
+}
+
+.createdBy{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.author{
+    margin: 0;
+    font-size: 1rem;
+}
+ 
+
+ @media screen and (max-width: 500px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+    body > main, body > aside {
+        width: 94%;
+        margin: 10px;
+    }
+ }
+ @media screen and (max-width: 600px){
+    body{
+        font-size: 12px;
+    }
+ }
+
+ @media screen and (max-width: 400px){
+    body, #addProductInput, #addProductButton, .product input.name, .minus, .plus, .cancel, .buy, .count {
+        font-size: 3.1vw;
+    }
+    body > main > * {
+        padding: 4.5vw;
+    }
+    body > main > section {
+        padding: 3vw 4.5vw;
+    }
+    #addProductInput {
+        padding: 2vw;
+    }
+    #addProductButton{
+        padding: 2.4vw 7.6vw;
+    }
+    .product .thirdColumn {
+        flex-basis: 40vw;
+    }
+    .buy{
+        padding: 2.2vw 4.7vw;
+    }
+    .cancel {
+        padding: 2.2vw 4.2vw;
+        margin-left: 1.5vw;
+    }
+    .minus, .plus {
+        width: 7.5vw;
+        height: 7.5vw;
+    }
+    .count {
+        padding: 1.5vw 2.5vw;
+    }
+    body > aside > * {
+        padding: 4vw;
+    }
+    body > aside .count {
+        font-size: 3vw;
+    }
+    .countRight {
+        width: 5vw;
+        height: 5vw;
+    }
+}
+
+
+
+ @media print {
+    .BuyList{
+        border: 2px rgb(103, 33, 170) solid;
+        background-color: rgb(255, 255, 255);
+        transform: translateY(0);
+        color: black;
+    }
+    .BuyList h2{
+        display: none;
+    }
+    
+ }
+
