@@ -1,3 +1,4 @@
+// метод, що генерує об'єкт продукту за назвою
 let objectTemplate = (inputValue) => {
     return {
         name: inputValue,
@@ -23,6 +24,7 @@ const productElement = (productObject) => {
     </section>`;
 }
 
+// генерує HTML-елемент для відображення кількості товару
 const countElement = (productObject) => {
     return `<span class="count">${productObject.name}
     <span class="countRight">${productObject.quantity}</span>
@@ -30,33 +32,32 @@ const countElement = (productObject) => {
 }
 
 
-
 let products = [
     { name: "Помідори", quantity: 2, isBought: true },
     { name: "Печиво", quantity: 2, isBought: false },
     { name: "Сир", quantity: 1, isBought: false },
 ]
+
+// оновлення даних у localStorage з поточним списком продуктів
 function updateLocalStorage() {
     localStorage.setItem("buyList", JSON.stringify(products));
 
-
-    //console.log(products);
 }
+
+// отримання даних з localStorage
 function fetchFromLocalStorage() {
     if (localStorage.getItem("buyList") != null) {
         products = JSON.parse(localStorage.getItem("buyList"));
-        //console.log("Parsed from localStorage", products);
     }
 }
-function clearStorage() {
-    localStorage.removeItem("buyList");
-    location.reload();
-}
+
+// пошук об'єкта товару за назвою
 function findObjectByName(name){
     let productNames = products.map((product) => product.name);
     return products[productNames.indexOf(name)]
 }
 
+// збільшення кількості товару
 function increaseQuantity(productName){
     let quantity = findObjectByName(productName).quantity 
     findObjectByName(productName).quantity = quantity+1;
@@ -64,6 +65,8 @@ function increaseQuantity(productName){
     renderCountElements();
     updateLocalStorage();
 }
+
+// зменшення кількості товару
 function decreaseQuantity(productName){
     let quantity = findObjectByName(productName).quantity 
     if(quantity>1) {
@@ -74,9 +77,7 @@ function decreaseQuantity(productName){
     }
 }
 
-// function applyRename(productName) {
-//     console.log("apply rename to", productName);
-// }
+// видалення продукту зі списку
 function deleteProduct(productName) {
     console.log("deleting ", productName);
     let productNames = products.map((product) => product.name);
@@ -86,6 +87,8 @@ function deleteProduct(productName) {
     renderCountElements();
     updateLocalStorage();
 }
+
+// зміна статусу продукту (куплено/не куплено)
 function buyProduct(productName) {
     findObjectByName(productName).isBought = !findObjectByName(productName).isBought;
     renderElements();
@@ -93,6 +96,7 @@ function buyProduct(productName) {
     updateLocalStorage();
 }
 
+// перевірка коректності введеної назви продукту
 function checkValidness(value) {
     let productNames = products.map((product) => product.name.toLocaleLowerCase());
     console.log(productNames);
@@ -101,6 +105,7 @@ function checkValidness(value) {
     } else return true;
 }
 
+// рендеринг HTML-розмітки всіх продуктів у списку
 function renderElements() {
     const productsContainer = document.getElementById("productsList");
     productsContainer.innerHTML = '';
@@ -110,6 +115,7 @@ function renderElements() {
     })
 }
 
+// відображає елементи підрахунку в HTML. для aside
 function renderCountElements() {
     const leftContainer = document.getElementById("left");
     const boughtContainer = document.getElementById("bought");
@@ -126,11 +132,7 @@ function renderCountElements() {
     })
 }
 
-function rename(productName){
-    //findObjectByName(productName);
-    
-}
-
+// перейменування продукту
 function applyRename(productName, inputValue, p, input){
     console.log(productName, inputValue, p, input);
     if (checkValidness(inputValue) || productName.toLocaleLowerCase()==inputValue.toLocaleLowerCase()){
